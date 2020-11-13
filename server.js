@@ -32,10 +32,12 @@ app.post("/", function(req, res){
       const weatherIcon = weatherData.weather[0].icon;
       const imageUrl= "http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png";
 
-      res.render("weather", {cityname : query});
-      // res.render("weather", {temperature : temp});
-      res.render("weather", {weatherDes : weatherDescription});
-      // res.render("weather", {image : imageUrl});
+    res.write("<h1>" + query + "</h1>");
+    res.write("<h2>" + temp + "°C<h2>");
+    res.write("<h4>" + weatherDescription + "</h4>");
+    res.write("<img src=" + imageUrl + ">");
+
+    res.send();
 
 
 
